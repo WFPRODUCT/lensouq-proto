@@ -46,16 +46,27 @@ export default async function ModelProfilePage({
         <section className="mt-4 rounded-2xl border border-neutral-200 p-5 bg-white">
           <div className="flex flex-col md:flex-row gap-5">
             <div className="w-full md:w-1/2">
-              <div className="aspect-[16/10] rounded-xl bg-neutral-100 flex items-center justify-center text-neutral-400 text-sm">
-                {t.photoPlaceholder}
-              </div>
+              {m.image ? (
+                <img
+                  src={m.image}
+                  alt={m.name}
+                  className="aspect-[16/10] w-full rounded-xl object-cover bg-neutral-100"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="aspect-[16/10] w-full rounded-xl bg-neutral-100 flex items-center justify-center text-neutral-400 text-sm">
+                  {t.photoPlaceholder}
+                </div>
+              )}
             </div>
 
             <div className="w-full md:w-1/2">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <h1 className="text-2xl font-semibold tracking-tight">{m.name}</h1>
-                  <p className="mt-1 text-sm text-neutral-600">{m.category} · {m.location}</p>
+                  <p className="mt-1 text-sm text-neutral-600">
+                    {m.specialty} · {m.location}
+                  </p>
                 </div>
                 {m.verified && <Badge>{t.verified}</Badge>}
               </div>
@@ -63,7 +74,8 @@ export default async function ModelProfilePage({
               <div className="mt-4 rounded-xl border border-neutral-200 p-4 bg-neutral-50">
                 <div className="text-sm font-medium">{t.pricing}</div>
                 <div className="mt-1 text-sm text-neutral-700">
-                  ★ {m.rating.toFixed(1)} · {t.from} <span className="font-semibold">{m.priceQAR} QAR</span> / {t.perHour}
+                  ★ {m.rating.toFixed(1)} · {t.from}{" "}
+                  <span className="font-semibold">{m.priceQAR} QAR</span> / {t.perHour}
                 </div>
                 <div className="mt-2 text-xs text-neutral-600">{t.pricingNote}</div>
 
