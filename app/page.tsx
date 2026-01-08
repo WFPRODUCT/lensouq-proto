@@ -109,10 +109,10 @@ export default async function Home({
                   {t.photoPlaceholder}
                 </div>
                 <div className="mt-3 flex items-start justify-between gap-2">
-                  <div>
-                    <div className="font-medium">{m.name}</div>
-                    <div className="text-sm text-neutral-600">{m.category}</div>
-                  </div>
+                 <div>
+  <div className="font-medium">{m.name}</div>
+  <div className="text-sm text-neutral-600">{m.specialty}</div>
+</div>
                   {m.verified && (
                     <span className="text-xs rounded-full border border-neutral-300 px-2 py-1">
                       {t.verified}
