@@ -19,7 +19,7 @@ export default async function PhotographersPage({
   const t = getT(lang);
 
   const min = sp.min ? Number(sp.min) : 0;
-  const max = sp.max ? Number(sp.max) : 100000;
+  const max = sp.max ? Number(sp.max) : 10000;
   const onlyVerified = sp.verified === "1";
   const q = (sp.q || "").toLowerCase().trim();
 
@@ -36,51 +36,44 @@ export default async function PhotographersPage({
   });
 
   return (
-    <Shell>
+    <Shell lang={lang}>
       <Header lang={lang} />
 
-      <div className="mb-6">
-        <h1 className="text-2xl font-semibold">
-          {t.photographersTitle}
-        </h1>
-        <p className="text-neutral-600">
-          {t.photographersSubtitle}
-        </p>
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {list.map((p) => (
           <Link
             key={p.id}
             href={`/photographers/${p.id}`}
-            className="rounded-xl border p-4 hover:shadow transition"
+            className="rounded-xl border hover:shadow-lg transition bg-white overflow-hidden"
           >
             {/* IMAGE */}
-            <div className="aspect-[16/10] mb-3 overflow-hidden rounded-lg bg-neutral-100">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+            <div className="aspect-[4/3] bg-gray-100">
               <img
-                src={(p as any).image}
+                src={p.image}
                 alt={p.name}
-                className="h-full w-full object-cover"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
 
-            <div className="flex items-center justify-between">
-              <h3 className="font-semibold">{p.name}</h3>
-              {p.verified && <Badge>Verified</Badge>}
+            {/* INFO */}
+            <div className="p-4">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold text-lg">{p.name}</h3>
+                {p.verified && <Badge>Verified</Badge>}
+              </div>
+
+              <p className="text-sm text-gray-600">{p.specialty}</p>
+              <p className="text-sm text-gray-500">{p.location}</p>
+
+              <p className="mt-2 font-medium">
+                {p.priceQAR} QAR / hour
+              </p>
+
+              <p className="text-sm text-gray-500 mt-1">
+                ⭐ {p.rating}
+              </p>
             </div>
-
-            <p className="text-sm text-neutral-600">
-              {p.specialty}
-            </p>
-            <p className="text-sm text-neutral-500">
-              {p.location}
-            </p>
-
-            <p className="mt-2 font-medium">
-              {p.priceQAR} QAR / hour
-            </p>
           </Link>
         ))}
       </div>
