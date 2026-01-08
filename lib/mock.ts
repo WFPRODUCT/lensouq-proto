@@ -7,6 +7,8 @@ export const photographers = [
     rating: 4.8,
     priceQAR: 450,
     verified: true,
+    image:
+      "https://images.unsplash.com/photo-1520975693411-6c3b2f6d79c3?auto=format&fit=crop&w=1600&q=70",
     bio: "Minimal, clean product photography for brands, restaurants, and online stores. Fast turnaround and consistent lighting.",
     reviews: [
       { author: "Sara", stars: 5, text: "Great direction and very professional results." },
@@ -22,6 +24,8 @@ export const photographers = [
     rating: 4.6,
     priceQAR: 380,
     verified: false,
+    image:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1600&q=70",
     bio: "Natural light portraits and lifestyle shoots with a calm, minimal aesthetic.",
     reviews: [
       { author: "Aisha", stars: 4.6, text: "Loved the vibe and the composition." },
@@ -37,6 +41,8 @@ export const photographers = [
     rating: 4.9,
     priceQAR: 750,
     verified: true,
+    image:
+      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1600&q=70",
     bio: "Elegant weddings and events. Storytelling, details, and timeless color grading.",
     reviews: [
       { author: "Rana", stars: 5, text: "Captured every important moment." },
@@ -57,6 +63,8 @@ export const models = [
     verified: true,
     heightCm: 170,
     languages: ["AR", "EN"],
+    image:
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=70",
     bio: "Commercial shoots for beauty, lifestyle and e-commerce. Calm presence, minimal posing style.",
   },
   {
@@ -69,6 +77,8 @@ export const models = [
     verified: true,
     heightCm: 175,
     languages: ["AR", "EN"],
+    image:
+      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1600&q=70",
     bio: "Fashion editorial and brand campaigns. Strong runway posture and clean silhouettes.",
   },
   {
@@ -81,6 +91,8 @@ export const models = [
     verified: false,
     heightCm: 168,
     languages: ["AR", "EN"],
+    image:
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1600&q=70",
     bio: "Beauty and skincare product shoots. Clean, minimal looks and close-up experience.",
   },
 ];
