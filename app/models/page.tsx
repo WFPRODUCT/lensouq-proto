@@ -26,18 +26,17 @@ export default async function ModelsPage({
   const list = models.filter((m) => {
     if (m.priceQAR < min || m.priceQAR > max) return false;
     if (onlyVerified && !m.verified) return false;
+
     if (
       q &&
-      if (
-  q &&
-  !(
-    m.name.toLowerCase().includes(q) ||
-    m.specialty.toLowerCase().includes(q)
-  )
-) {
-  return false;
-}
+      !(
+        m.name.toLowerCase().includes(q) ||
+        m.specialty.toLowerCase().includes(q)
+      )
+    ) {
       return false;
+    }
+
     return true;
   });
 
@@ -89,13 +88,23 @@ export default async function ModelsPage({
               href={`/models/${m.id}?lang=${lang}`}
               className="rounded-2xl border border-neutral-200 p-4 hover:border-neutral-300 bg-white"
             >
-              <div className="aspect-[16/10] rounded-xl bg-neutral-100 flex items-center justify-center text-neutral-400 text-sm">
-                {t.photoPlaceholder}
-              </div>
+              {m.image ? (
+                <img
+                  src={m.image}
+                  alt={m.name}
+                  className="aspect-[16/10] w-full rounded-xl object-cover bg-neutral-100"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="aspect-[16/10] rounded-xl bg-neutral-100 flex items-center justify-center text-neutral-400 text-sm">
+                  {t.photoPlaceholder}
+                </div>
+              )}
+
               <div className="mt-3 flex items-start justify-between gap-2">
                 <div>
                   <div className="font-medium">{m.name}</div>
-                  <div className="text-sm text-neutral-600">{m.category}</div>
+                  <div className="text-sm text-neutral-600">{m.specialty}</div>
                 </div>
                 {m.verified && (
                   <span className="text-xs rounded-full border border-neutral-300 px-2 py-1">
@@ -103,6 +112,7 @@ export default async function ModelsPage({
                   </span>
                 )}
               </div>
+
               <div className="mt-2 text-sm text-neutral-700">
                 ★ {m.rating.toFixed(1)} · {t.from} {m.priceQAR}/h · {m.location}
               </div>
