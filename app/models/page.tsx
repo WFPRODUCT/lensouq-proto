@@ -28,11 +28,15 @@ export default async function ModelsPage({
     if (onlyVerified && !m.verified) return false;
     if (
       q &&
-      !(
-        m.name.toLowerCase().includes(q) ||
-        m.category.toLowerCase().includes(q)
-      )
-    )
+      if (
+  q &&
+  !(
+    m.name.toLowerCase().includes(q) ||
+    m.specialty.toLowerCase().includes(q)
+  )
+) {
+  return false;
+}
       return false;
     return true;
   });
