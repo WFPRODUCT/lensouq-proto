@@ -63,34 +63,43 @@ export default async function Home({
               <Link
                 key={p.id}
                 href={`/photographers/${p.id}?lang=${lang}`}
-                className="rounded-2xl border border-neutral-200 p-4 hover:border-neutral-300 bg-white"
+                className="rounded-2xl border border-neutral-200 hover:border-neutral-300 bg-white overflow-hidden flex flex-col"
               >
                 {p.image ? (
                   <img
                     src={p.image}
                     alt={p.name}
-                    className="aspect-[16/10] w-full rounded-xl object-cover bg-neutral-100"
+                    className="h-56 w-full object-cover bg-neutral-100"
                     loading="lazy"
                   />
                 ) : (
-                  <div className="aspect-[16/10] w-full rounded-xl bg-neutral-100 overflow-hidden flex items-center justify-center text-neutral-400 text-sm">
+                  <div className="h-56 w-full bg-neutral-100 flex items-center justify-center text-neutral-400 text-sm">
                     {t.photoPlaceholder}
                   </div>
                 )}
 
-                <div className="mt-3 flex items-start justify-between gap-2">
-                  <div>
-                    <div className="font-medium">{p.name}</div>
-                    <div className="text-sm text-neutral-600">{p.specialty}</div>
+                <div className="p-4">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0">
+                      <div className="font-medium truncate">{p.name}</div>
+                      <div className="text-sm text-neutral-600 truncate">
+                        {p.specialty}
+                      </div>
+                      <div className="text-sm text-neutral-600 truncate">
+                        {p.location}
+                      </div>
+                      <div className="mt-2 text-sm text-neutral-700">
+                        ★ {p.rating.toFixed(1)} · {t.from} {p.priceQAR} QAR /{" "}
+                        {t.perHour}
+                      </div>
+                    </div>
+
+                    {p.verified && (
+                      <span className="text-xs rounded-full border border-neutral-300 px-2 py-1 h-fit shrink-0">
+                        {t.verified}
+                      </span>
+                    )}
                   </div>
-                  {p.verified && (
-                    <span className="text-xs rounded-full border border-neutral-300 px-2 py-1">
-                      {t.verified}
-                    </span>
-                  )}
-                </div>
-                <div className="mt-2 text-sm text-neutral-700">
-                  ★ {p.rating.toFixed(1)} · {t.from} {p.priceQAR}/h
                 </div>
               </Link>
             ))}
@@ -113,35 +122,43 @@ export default async function Home({
               <Link
                 key={m.id}
                 href={`/models/${m.id}?lang=${lang}`}
-                className="rounded-2xl border border-neutral-200 p-4 hover:border-neutral-300 bg-white"
+                className="rounded-2xl border border-neutral-200 hover:border-neutral-300 bg-white overflow-hidden flex flex-col"
               >
                 {m.image ? (
                   <img
                     src={m.image}
                     alt={m.name}
-                    className="aspect-[16/10] w-full rounded-xl object-cover bg-neutral-100"
+                    className="h-56 w-full object-cover bg-neutral-100"
                     loading="lazy"
                   />
                 ) : (
-                  <div className="aspect-[16/10] w-full rounded-xl bg-neutral-100 overflow-hidden flex items-center justify-center text-neutral-400 text-sm">
+                  <div className="h-56 w-full bg-neutral-100 flex items-center justify-center text-neutral-400 text-sm">
                     {t.photoPlaceholder}
                   </div>
                 )}
 
-                <div className="mt-3 flex items-start justify-between gap-2">
-                  <div>
-                    <div className="font-medium">{m.name}</div>
-                    <div className="text-sm text-neutral-600">{m.specialty}</div>
-                  </div>
+                <div className="p-4">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0">
+                      <div className="font-medium truncate">{m.name}</div>
+                      <div className="text-sm text-neutral-600 truncate">
+                        {m.specialty}
+                      </div>
+                      <div className="text-sm text-neutral-600 truncate">
+                        {m.location}
+                      </div>
+                      <div className="mt-2 text-sm text-neutral-700">
+                        ★ {m.rating.toFixed(1)} · {t.from} {m.priceQAR} QAR /{" "}
+                        {t.perHour}
+                      </div>
+                    </div>
 
-                  {m.verified && (
-                    <span className="text-xs rounded-full border border-neutral-300 px-2 py-1">
-                      {t.verified}
-                    </span>
-                  )}
-                </div>
-                <div className="mt-2 text-sm text-neutral-700">
-                  ★ {m.rating.toFixed(1)} · {t.from} {m.priceQAR}/h
+                    {m.verified && (
+                      <span className="text-xs rounded-full border border-neutral-300 px-2 py-1 h-fit shrink-0">
+                        {t.verified}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </Link>
             ))}
