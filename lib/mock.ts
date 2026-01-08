@@ -54,6 +54,8 @@ export const models = [
     rating: 4.8,
     bio: "Commercial and editorial modeling for brands, lookbooks, and campaigns.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+    heightCm: 172,
+    languages: ["English", "Arabic"],
     reviews: [
       { author: "Laila", stars: 5.0, text: "Very professional and easy to work with." },
       { author: "Ahmad", stars: 4.7, text: "Great presence on camera." },
@@ -69,6 +71,8 @@ export const models = [
     rating: 4.6,
     bio: "Lifestyle and product shoots with a natural, authentic look.",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop",
+    heightCm: 180,
+    languages: ["English"],
     reviews: [],
   },
 ];
